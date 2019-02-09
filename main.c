@@ -14,8 +14,10 @@
 
 int main()
 {
-    printf("Tag des Jahres: %i\n", day_of_the_year(31, 9, 2018));
-    day_of_the_weak(3,5);
+    int Tag,Monat,Jahr;
+    input_date(&Tag, &Monat, &Jahr);
+    printf("Tag des Jahres: %i\n", day_of_the_year(Tag, Monat, Jahr));
+    //day_of_the_weak(3,5);
     return 0;
 }
 int day_of_the_weak(int day, int month,int year){

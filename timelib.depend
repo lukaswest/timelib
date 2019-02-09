@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1545524029 source:c:\users\teilnehmer.pc29\downloads\timelib-master\main.c
+1549149394 source:c:\users\teilnehmer.pc29\downloads\timelib-master\main.c
 	<stdio.h>
 	<stdlib.h>
+	"time.h"
 
 1547942642 source:d:\temp\timelib\time.c
 
@@ -11,4 +12,8 @@
 	"time.h"
 
 1547939416 d:\temp\timelib\time.h
+
+1547943193 c:\users\teilnehmer.pc29\downloads\timelib-master\time.h
+
+1549151068 source:c:\users\teilnehmer.pc29\downloads\timelib-master\time.c
 

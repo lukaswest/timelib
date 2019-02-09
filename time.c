@@ -1,14 +1,30 @@
+#include <stdio.h>
 
  int exists_date(int day, int month, int year){
-    if ((year+month+day) <1584){
+    int Tage_im_Monat=get_Days_for_month(month, year);
+    if (year < 1582 || year > 2400){
         return 0;
     }
-    else if ((year+month+day) >2443){
+    else if (month < 1 || month > 12){
+        return 0;
+    }
+    else if (day < 1 || day > Tage_im_Monat){
         return 0;
     }
     else {
         return 1;
     }
+ }
+
+input_date(int *day, int *month, int *year){
+    do{
+        printf("Eingabe des Tages:");
+        scanf("%i", day);
+        printf("\nEingabe des Monats:");
+        scanf("%i", month);
+        printf("\nEingabe des Jahres:");
+        scanf("%i", year);
+    }while(exists_date(*day,*month,*year)!=1);
  }
 
 int is_leapyear(int year){
@@ -39,19 +55,12 @@ int get_Days_for_month(int month, int year){
 
 int day_of_the_year(int day, int month, int year)
 {
-    int exists =exists_date(day,month,year);
     int i=1, Anzahl=0;
-    if (exists==1){
-        while (i<month){
-            Anzahl+=get_Days_for_month(i, year);
-            i++;
-        }
-        Anzahl+= day;
-        return Anzahl;
+    while (i<month){
+        Anzahl+=get_Days_for_month(i, year);
+        i++;
     }
-    if (exists==0){
-        return -1;
-    }
-
+    Anzahl+= day;
+    return Anzahl;
 }
 
