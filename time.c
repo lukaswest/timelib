@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include "time.h"
 
- int exists_date(int day, int month, int year){
-    int Tage_im_Monat=get_Days_for_month(month, year);
-    if (year < 1582 || year > 2400){
+int exists_date(struct date Datum){
+    int Tage_im_Monat=get_Days_for_month(Datum.month, Datum.year);
+    if (Datum.year < 1582 || Datum.year > 2400){
         return 0;
     }
-    else if (month < 1 || month > 12){
+    else if (Datum.month < 1 || Datum.month > 12){
         return 0;
     }
-    else if (day < 1 || day > Tage_im_Monat){
+    else if (Datum.day < 1 || Datum.day > Tage_im_Monat){
         return 0;
     }
     else {
@@ -16,15 +17,16 @@
     }
  }
 
-input_date(int *day, int *month, int *year){
+struct date input_date(struct date Datum){
     do{
         printf("Eingabe des Tages:");
-        scanf("%i", day);
+        scanf("%i", &Datum.day);
         printf("\nEingabe des Monats:");
-        scanf("%i", month);
+        scanf("%i", &Datum.month);
         printf("\nEingabe des Jahres:");
-        scanf("%i", year);
-    }while(exists_date(*day,*month,*year)!=1);
+        scanf("%i", &Datum.year);
+    }while(exists_date(Datum)!=1);
+    return Datum;
  }
 
 int is_leapyear(int year){
@@ -53,14 +55,14 @@ int get_Days_for_month(int month, int year){
 }
 
 
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date Datum)
 {
     int i=1, Anzahl=0;
-    while (i<month){
-        Anzahl+=get_Days_for_month(i, year);
+    while (i<Datum.month){
+        Anzahl+=get_Days_for_month(i,Datum.year);
         i++;
     }
-    Anzahl+= day;
+    Anzahl+= Datum.day;
     return Anzahl;
 }
 
