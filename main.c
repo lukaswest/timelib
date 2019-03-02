@@ -15,6 +15,5 @@ int main()
     struct date Datum;
     Datum = input_date();
     printf("Tag des Jahres: %i\n", day_of_the_year(Datum));
-    //day_of_the_week(3,5);
     return 0;
 }

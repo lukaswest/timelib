@@ -93,6 +93,5 @@ int day_of_the_week(int day, int month,int year){
         year_first--;
         year_first=year_first/100;
     }
-    //Tag=(day+month+year+)
     printf("%i",month);
 }
